@@ -48,15 +48,16 @@ class _MyHomePageState extends State<MyHomePage> {
   //   print(userObject);
   // }
 
-    Future getImage() async {
+    Future<void> getImage() async {
     final image = await imagePicker.pickImage(
         source: ImageSource.camera);
+
     setState(() {
       _image = File(image!.path);
     });
     File file = File(_image.path);
     final filename = basename(file!.path!);
-    final destination = 'files/$filename';
+    final destination = '${user.email}/$filename';
     FirebaseApi.uploadFile(destination, file!);
 
   }
@@ -138,7 +139,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                       PopupMenuItem(
                         child: GestureDetector(
-                            onTap: getImage,
+                            onTap: () => getImage(),
                             child: Center(child: Text("Camera"))),
                       ),
                       // PopupMenuItem(
@@ -150,10 +151,12 @@ class _MyHomePageState extends State<MyHomePage> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(builder: (context) {
-                                  return Lab_Report();
+
+                                  return Lab_Report( user.email ?? 'files');
                                 }),
                               );
                             },
+
                             child: Center(child: Text("Gallery"))),
                       ),
                     ],

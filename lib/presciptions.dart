@@ -285,15 +285,24 @@ class Desgining extends StatelessWidget {
 }
 
 class Lab_Report extends StatefulWidget {
-  const Lab_Report({Key? key}) : super(key: key);
+  // const Lab_Report({Key? key}) : super(key: key);
+  String names="d";
+   Lab_Report(String name){
+    this.names = name;
+  }
 
   @override
-  State<Lab_Report> createState() => _Lab_ReportState();
+  State<Lab_Report> createState() => _Lab_ReportState(names);
 }
 
 class _Lab_ReportState extends State<Lab_Report> {
   final blue1 = const Color(0xff0d0f35);
 File? file;
+  String names='d';
+  _Lab_ReportState(String name){
+    this.names=name;
+  }
+
 
   Future SelectFileFromStorage() async {
     // FilePickerResult? result = await FilePicker.platform.pickFiles();
@@ -301,6 +310,7 @@ File? file;
     // setState(() {
     //   pickedFile = result.files.first;
     // });
+    print(names);
     final result = await FilePicker.platform.pickFiles(allowMultiple: false);
     if(result==null) return;
       final path = result.files.single.path!;
@@ -311,9 +321,10 @@ File? file;
 
   }
   Future Upload() async{
+
     if(file==null) return;
     final filename = basename(file!.path);
-    final destination = 'files/$filename';
+    final destination = '$names/$filename';
     FirebaseApi.uploadFile(destination, file!);
   }
 
