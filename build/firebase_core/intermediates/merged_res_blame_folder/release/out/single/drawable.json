@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "C:\\Users\\LENOVO\\StudioProjects\\swathyavardhak\\build\\firebase_core\\intermediates\\merged_res\\release\\drawable\\notification_bg_low.xml",
+        "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\999441dab9df4a0ea2f465f58ab31049\\transformed\\core-1.6.0\\res\\drawable\\notification_bg_low.xml"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO\\StudioProjects\\swathyavardhak\\build\\firebase_core\\intermediates\\merged_res\\release\\drawable\\notification_tile_bg.xml",
+        "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\999441dab9df4a0ea2f465f58ab31049\\transformed\\core-1.6.0\\res\\drawable\\notification_tile_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO\\StudioProjects\\swathyavardhak\\build\\firebase_core\\intermediates\\merged_res\\release\\drawable\\notification_bg.xml",
+        "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\999441dab9df4a0ea2f465f58ab31049\\transformed\\core-1.6.0\\res\\drawable\\notification_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO\\StudioProjects\\swathyavardhak\\build\\firebase_core\\intermediates\\merged_res\\release\\drawable\\notification_icon_background.xml",
+        "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\999441dab9df4a0ea2f465f58ab31049\\transformed\\core-1.6.0\\res\\drawable\\notification_icon_background.xml"
+    }
+]

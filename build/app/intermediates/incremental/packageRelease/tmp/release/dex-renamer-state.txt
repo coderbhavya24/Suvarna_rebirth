@@ -1,0 +1,4 @@
+#Sun Jul 24 15:24:45 IST 2022
+base.0=C\:\\Users\\LENOVO\\StudioProjects\\swathyavardhak\\build\\app\\intermediates\\dex\\release\\minifyReleaseWithR8\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
