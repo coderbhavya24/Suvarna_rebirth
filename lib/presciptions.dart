@@ -326,6 +326,7 @@ File? file;
     final filename = basename(file!.path);
     final destination = '$names/$filename';
     FirebaseApi.uploadFile(destination, file!);
+    print('file uploaded');
   }
 
   @override
@@ -337,7 +338,21 @@ File? file;
         height: 70,
         width: 70,
         child: FloatingActionButton(
-          onPressed: Upload,
+          onPressed: ()  {
+            final snackBar = SnackBar(
+              content: const Text('File uploaded'),
+              action: SnackBarAction(
+                label: 'Undo',
+                onPressed: () {
+                  // Some code to undo the change.
+                },
+              ),
+            );
+            Upload();
+            // Find the ScaffoldMessenger in the widget tree
+            // and use it to show a SnackBar.
+            ScaffoldMessenger.of(context).showSnackBar(snackBar);
+          },
           child: Icon(Icons.cloud_upload,
           size: 35,),
         ),
