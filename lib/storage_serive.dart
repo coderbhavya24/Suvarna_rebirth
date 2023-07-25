@@ -5,18 +5,18 @@ import 'dart:io';
 class Storage{
   final firebase_storage.FirebaseStorage storage = firebase_storage.FirebaseStorage.instance;
 
-  Future<firebase_storage.ListResult> listFiles() async {
-    firebase_storage.ListResult results = await storage.ref('vaibhav2012093@akgec.ac.in').listAll();
-
+  Future<firebase_storage.ListResult> listFiles(String name) async {
+    firebase_storage.ListResult results = await storage.ref(name).listAll();
+    print(name);
     results.items.forEach((firebase_storage.Reference ref) {
       print('Found file: $ref');
     });
 
     return results;
   }
-  Future<String> downloadURL(String imageName) async{
+  Future<String> downloadURL(String imageName, String user_name) async{
     String downloadURL  = await
-    storage.ref('test/$imageName').getDownloadURL();
+    storage.ref('$user_name/$imageName').getDownloadURL();
 
     return downloadURL;
   }
