@@ -1,33 +1,40 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\LENOVO\\StudioProjects\\swathyavardhak\\build\\app\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-en-rAU\\values-en-rAU.xml",
+            "outputFile": "C:\\Users\\LENOVO\\StudioProjects\\suvarna2\\build\\app\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-en-rAU\\values-en-rAU.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\999441dab9df4a0ea2f465f58ab31049\\transformed\\core-1.6.0\\res\\values-en-rAU\\values-en-rAU.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "6",
-                        "startColumns": "4",
-                        "startOffsets": "458",
-                        "endColumns": "100",
-                        "endOffsets": "554"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\7dc3d3932c3bc7d508451f4138de6ddd\\transformed\\browser-1.4.0\\res\\values-en-rAU\\values-en-rAU.xml",
+                    "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\dcf0fd9e4c02d40354333b130bd3a2a3\\transformed\\browser-1.4.0\\res\\values-en-rAU\\values-en-rAU.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
                         "startOffsets": "55,153,250,359",
                         "endColumns": "97,96,108,98",
                         "endOffsets": "148,245,354,453"
+                    },
+                    "to": {
+                        "startLines": "9,10,11,12",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "774,872,969,1078",
+                        "endColumns": "97,96,108,98",
+                        "endOffsets": "867,964,1073,1172"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\0737adc6d365da45358c4719e8dc3a7f\\transformed\\core-1.10.1\\res\\values-en-rAU\\values-en-rAU.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,151,253,352,451,555,658,774",
+                        "endColumns": "95,101,98,98,103,102,115,100",
+                        "endOffsets": "146,248,347,446,550,653,769,870"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,13",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,151,253,352,451,555,658,1177",
+                        "endColumns": "95,101,98,98,103,102,115,100",
+                        "endOffsets": "146,248,347,446,550,653,769,1273"
                     }
                 }
             ]

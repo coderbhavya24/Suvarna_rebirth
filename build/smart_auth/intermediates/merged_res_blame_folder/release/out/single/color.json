@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "C:\\Users\\LENOVO\\StudioProjects\\suvarna2\\build\\smart_auth\\intermediates\\merged_res\\release\\color\\common_google_signin_btn_text_dark.xml",
+        "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\bb571cb49d98d4afad29377e8ddbc9bf\\transformed\\jetified-play-services-base-18.0.1\\res\\color\\common_google_signin_btn_text_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO\\StudioProjects\\suvarna2\\build\\smart_auth\\intermediates\\merged_res\\release\\color\\common_google_signin_btn_text_light.xml",
+        "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\bb571cb49d98d4afad29377e8ddbc9bf\\transformed\\jetified-play-services-base-18.0.1\\res\\color\\common_google_signin_btn_text_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO\\StudioProjects\\suvarna2\\build\\smart_auth\\intermediates\\merged_res\\release\\color\\common_google_signin_btn_tint.xml",
+        "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\bb571cb49d98d4afad29377e8ddbc9bf\\transformed\\jetified-play-services-base-18.0.1\\res\\color\\common_google_signin_btn_tint.xml"
+    }
+]

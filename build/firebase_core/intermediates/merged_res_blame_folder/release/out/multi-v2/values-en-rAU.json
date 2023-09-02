@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\LENOVO\\StudioProjects\\swathyavardhak\\build\\firebase_core\\intermediates\\merged_res\\release\\values-en-rAU\\values-en-rAU.xml",
+            "outputFile": "C:\\Users\\LENOVO\\StudioProjects\\suvarna2\\build\\firebase_core\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-en-rAU\\values-en-rAU.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\999441dab9df4a0ea2f465f58ab31049\\transformed\\core-1.6.0\\res\\values-en-rAU\\values-en-rAU.xml",
+                    "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\969f8df38d4ce1bbc94b5991efe7dce2\\transformed\\core-1.6.0\\res\\values-en-rAU\\values-en-rAU.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -16,10 +16,10 @@
             ]
         },
         {
-            "outputFile": "C:\\Users\\LENOVO\\StudioProjects\\swathyavardhak\\build\\firebase_core\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-en-rAU\\values-en-rAU.xml",
+            "outputFile": "C:\\Users\\LENOVO\\StudioProjects\\suvarna2\\build\\firebase_core\\intermediates\\merged_res\\release\\values-en-rAU\\values-en-rAU.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\999441dab9df4a0ea2f465f58ab31049\\transformed\\core-1.6.0\\res\\values-en-rAU\\values-en-rAU.xml",
+                    "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\969f8df38d4ce1bbc94b5991efe7dce2\\transformed\\core-1.6.0\\res\\values-en-rAU\\values-en-rAU.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

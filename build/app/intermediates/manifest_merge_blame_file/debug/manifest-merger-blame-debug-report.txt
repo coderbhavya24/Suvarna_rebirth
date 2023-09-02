@@ -88,31 +88,31 @@
 70            android:value="2" />
 71
 72        <service
-72-->[:firebase_auth] C:\Users\LENOVO\StudioProjects\suvarna2\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-14:19
+72-->[:cloud_firestore] C:\Users\LENOVO\StudioProjects\suvarna2\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-14:19
 73            android:name="com.google.firebase.components.ComponentDiscoveryService"
-73-->[:firebase_auth] C:\Users\LENOVO\StudioProjects\suvarna2\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:10:18-89
+73-->[:cloud_firestore] C:\Users\LENOVO\StudioProjects\suvarna2\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:10:18-89
 74            android:directBootAware="true"
 74-->[com.google.firebase:firebase-common:20.3.3] C:\Users\LENOVO\.gradle\caches\transforms-3\efe308f86eed8331bda26b81fb8f2f00\transformed\jetified-firebase-common-20.3.3\AndroidManifest.xml:34:13-43
 75            android:exported="false" >
 75-->[com.google.firebase:firebase-auth:22.1.0] C:\Users\LENOVO\.gradle\caches\transforms-3\da3f37b4068ffb2bb36acc5c4a93106e\transformed\jetified-firebase-auth-22.1.0\AndroidManifest.xml:68:13-37
 76            <meta-data
-76-->[:firebase_auth] C:\Users\LENOVO\StudioProjects\suvarna2\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:85
-77                android:name="com.google.firebase.components:io.flutter.plugins.firebase.auth.FlutterFirebaseAuthRegistrar"
-77-->[:firebase_auth] C:\Users\LENOVO\StudioProjects\suvarna2\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-124
+76-->[:cloud_firestore] C:\Users\LENOVO\StudioProjects\suvarna2\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:85
+77                android:name="com.google.firebase.components:io.flutter.plugins.firebase.firestore.FlutterFirebaseFirestoreRegistrar"
+77-->[:cloud_firestore] C:\Users\LENOVO\StudioProjects\suvarna2\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-134
 78                android:value="com.google.firebase.components.ComponentRegistrar" />
-78-->[:firebase_auth] C:\Users\LENOVO\StudioProjects\suvarna2\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:13:17-82
+78-->[:cloud_firestore] C:\Users\LENOVO\StudioProjects\suvarna2\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:13:17-82
 79            <meta-data
-79-->[:firebase_storage] C:\Users\LENOVO\StudioProjects\suvarna2\build\firebase_storage\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:85
-80                android:name="com.google.firebase.components:io.flutter.plugins.firebase.storage.FlutterFirebaseAppRegistrar"
-80-->[:firebase_storage] C:\Users\LENOVO\StudioProjects\suvarna2\build\firebase_storage\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-126
+79-->[:firebase_auth] C:\Users\LENOVO\StudioProjects\suvarna2\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:85
+80                android:name="com.google.firebase.components:io.flutter.plugins.firebase.auth.FlutterFirebaseAuthRegistrar"
+80-->[:firebase_auth] C:\Users\LENOVO\StudioProjects\suvarna2\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-124
 81                android:value="com.google.firebase.components.ComponentRegistrar" />
-81-->[:firebase_storage] C:\Users\LENOVO\StudioProjects\suvarna2\build\firebase_storage\intermediates\merged_manifest\debug\AndroidManifest.xml:13:17-82
+81-->[:firebase_auth] C:\Users\LENOVO\StudioProjects\suvarna2\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:13:17-82
 82            <meta-data
-82-->[:cloud_firestore] C:\Users\LENOVO\StudioProjects\suvarna2\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:85
-83                android:name="com.google.firebase.components:io.flutter.plugins.firebase.firestore.FlutterFirebaseFirestoreRegistrar"
-83-->[:cloud_firestore] C:\Users\LENOVO\StudioProjects\suvarna2\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-134
+82-->[:firebase_storage] C:\Users\LENOVO\StudioProjects\suvarna2\build\firebase_storage\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:85
+83                android:name="com.google.firebase.components:io.flutter.plugins.firebase.storage.FlutterFirebaseAppRegistrar"
+83-->[:firebase_storage] C:\Users\LENOVO\StudioProjects\suvarna2\build\firebase_storage\intermediates\merged_manifest\debug\AndroidManifest.xml:12:17-126
 84                android:value="com.google.firebase.components.ComponentRegistrar" />
-84-->[:cloud_firestore] C:\Users\LENOVO\StudioProjects\suvarna2\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:13:17-82
+84-->[:firebase_storage] C:\Users\LENOVO\StudioProjects\suvarna2\build\firebase_storage\intermediates\merged_manifest\debug\AndroidManifest.xml:13:17-82
 85            <meta-data
 85-->[:firebase_core] C:\Users\LENOVO\StudioProjects\suvarna2\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-13:85
 86                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
@@ -126,17 +126,17 @@
 90                android:value="com.google.firebase.components.ComponentRegistrar" />
 90-->[com.google.firebase:firebase-auth:22.1.0] C:\Users\LENOVO\.gradle\caches\transforms-3\da3f37b4068ffb2bb36acc5c4a93106e\transformed\jetified-firebase-auth-22.1.0\AndroidManifest.xml:71:17-82
 91            <meta-data
-91-->[com.google.firebase:firebase-storage:20.2.1] C:\Users\LENOVO\.gradle\caches\transforms-3\e3fe8a86764536706e16b486533aa13c\transformed\jetified-firebase-storage-20.2.1\AndroidManifest.xml:32:13-34:85
-92                android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar"
-92-->[com.google.firebase:firebase-storage:20.2.1] C:\Users\LENOVO\.gradle\caches\transforms-3\e3fe8a86764536706e16b486533aa13c\transformed\jetified-firebase-storage-20.2.1\AndroidManifest.xml:33:17-107
+91-->[com.google.firebase:firebase-firestore:24.7.0] C:\Users\LENOVO\.gradle\caches\transforms-3\b34aae2b39688a0c6808c5a0ef63ef0f\transformed\jetified-firebase-firestore-24.7.0\AndroidManifest.xml:19:13-21:85
+92                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
+92-->[com.google.firebase:firebase-firestore:24.7.0] C:\Users\LENOVO\.gradle\caches\transforms-3\b34aae2b39688a0c6808c5a0ef63ef0f\transformed\jetified-firebase-firestore-24.7.0\AndroidManifest.xml:20:17-111
 93                android:value="com.google.firebase.components.ComponentRegistrar" />
-93-->[com.google.firebase:firebase-storage:20.2.1] C:\Users\LENOVO\.gradle\caches\transforms-3\e3fe8a86764536706e16b486533aa13c\transformed\jetified-firebase-storage-20.2.1\AndroidManifest.xml:34:17-82
+93-->[com.google.firebase:firebase-firestore:24.7.0] C:\Users\LENOVO\.gradle\caches\transforms-3\b34aae2b39688a0c6808c5a0ef63ef0f\transformed\jetified-firebase-firestore-24.7.0\AndroidManifest.xml:21:17-82
 94            <meta-data
-94-->[com.google.firebase:firebase-firestore:24.7.0] C:\Users\LENOVO\.gradle\caches\transforms-3\b34aae2b39688a0c6808c5a0ef63ef0f\transformed\jetified-firebase-firestore-24.7.0\AndroidManifest.xml:19:13-21:85
-95                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
-95-->[com.google.firebase:firebase-firestore:24.7.0] C:\Users\LENOVO\.gradle\caches\transforms-3\b34aae2b39688a0c6808c5a0ef63ef0f\transformed\jetified-firebase-firestore-24.7.0\AndroidManifest.xml:20:17-111
+94-->[com.google.firebase:firebase-storage:20.2.1] C:\Users\LENOVO\.gradle\caches\transforms-3\e3fe8a86764536706e16b486533aa13c\transformed\jetified-firebase-storage-20.2.1\AndroidManifest.xml:32:13-34:85
+95                android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar"
+95-->[com.google.firebase:firebase-storage:20.2.1] C:\Users\LENOVO\.gradle\caches\transforms-3\e3fe8a86764536706e16b486533aa13c\transformed\jetified-firebase-storage-20.2.1\AndroidManifest.xml:33:17-107
 96                android:value="com.google.firebase.components.ComponentRegistrar" />
-96-->[com.google.firebase:firebase-firestore:24.7.0] C:\Users\LENOVO\.gradle\caches\transforms-3\b34aae2b39688a0c6808c5a0ef63ef0f\transformed\jetified-firebase-firestore-24.7.0\AndroidManifest.xml:21:17-82
+96-->[com.google.firebase:firebase-storage:20.2.1] C:\Users\LENOVO\.gradle\caches\transforms-3\e3fe8a86764536706e16b486533aa13c\transformed\jetified-firebase-storage-20.2.1\AndroidManifest.xml:34:17-82
 97        </service>
 98
 99        <provider

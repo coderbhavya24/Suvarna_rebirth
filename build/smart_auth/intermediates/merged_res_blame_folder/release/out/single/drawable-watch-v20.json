@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "C:\\Users\\LENOVO\\StudioProjects\\suvarna2\\build\\smart_auth\\intermediates\\merged_res\\release\\drawable-watch-v20\\common_google_signin_btn_text_disabled.xml",
+        "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\3eed064502c6ad6f8f5b4972f8d091ab\\transformed\\jetified-play-services-auth-20.4.0\\res\\drawable-watch-v20\\common_google_signin_btn_text_disabled.xml"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO\\StudioProjects\\suvarna2\\build\\smart_auth\\intermediates\\merged_res\\release\\drawable-watch-v20\\common_google_signin_btn_text_dark_normal.xml",
+        "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\3eed064502c6ad6f8f5b4972f8d091ab\\transformed\\jetified-play-services-auth-20.4.0\\res\\drawable-watch-v20\\common_google_signin_btn_text_dark_normal.xml"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO\\StudioProjects\\suvarna2\\build\\smart_auth\\intermediates\\merged_res\\release\\drawable-watch-v20\\common_google_signin_btn_text_light_normal.xml",
+        "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\3eed064502c6ad6f8f5b4972f8d091ab\\transformed\\jetified-play-services-auth-20.4.0\\res\\drawable-watch-v20\\common_google_signin_btn_text_light_normal.xml"
+    }
+]

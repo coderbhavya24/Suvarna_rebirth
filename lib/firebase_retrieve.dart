@@ -108,7 +108,7 @@ class _RetrievalState extends State<Retrieval> {
                                       'Prescription ${index+1}',
                                       // snapshot.data!.items[index].name,
                                       style: TextStyle(
-                                          fontSize: 25,
+                                          fontSize: 18,
                                           fontFamily: 'Convergence'
                                       ),),
                                     Container(

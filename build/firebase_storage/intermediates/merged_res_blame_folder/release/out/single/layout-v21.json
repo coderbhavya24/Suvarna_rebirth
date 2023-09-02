@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "C:\\Users\\LENOVO\\StudioProjects\\suvarna2\\build\\firebase_storage\\intermediates\\merged_res\\release\\layout-v21\\notification_template_custom_big.xml",
+        "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\969f8df38d4ce1bbc94b5991efe7dce2\\transformed\\core-1.6.0\\res\\layout-v21\\notification_template_custom_big.xml"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO\\StudioProjects\\suvarna2\\build\\firebase_storage\\intermediates\\merged_res\\release\\layout-v21\\notification_action.xml",
+        "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\969f8df38d4ce1bbc94b5991efe7dce2\\transformed\\core-1.6.0\\res\\layout-v21\\notification_action.xml"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO\\StudioProjects\\suvarna2\\build\\firebase_storage\\intermediates\\merged_res\\release\\layout-v21\\notification_template_icon_group.xml",
+        "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\969f8df38d4ce1bbc94b5991efe7dce2\\transformed\\core-1.6.0\\res\\layout-v21\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "C:\\Users\\LENOVO\\StudioProjects\\suvarna2\\build\\firebase_storage\\intermediates\\merged_res\\release\\layout-v21\\notification_action_tombstone.xml",
+        "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\969f8df38d4ce1bbc94b5991efe7dce2\\transformed\\core-1.6.0\\res\\layout-v21\\notification_action_tombstone.xml"
+    }
+]

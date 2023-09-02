@@ -6,7 +6,9 @@ import 'dart:io';
 import 'package:path/path.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:swathyavardhak/Firebase_api.dart';
+import 'package:swathyavardhak/Medicines.dart';
 import 'package:swathyavardhak/firebase_retrieve.dart';
+import 'package:swathyavardhak/pdfupload.dart';
 import 'package:swathyavardhak/presciptions.dart';
 import 'package:swathyavardhak/setting.dart';
 import 'package:swathyavardhak/splash.dart';
@@ -285,7 +287,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) {
-                    return Retrieval(user.email ?? 'files');
+                    return Medicine(user.email ?? 'files');
                   }),
                 );
               },
@@ -330,12 +332,12 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             GestureDetector(
               onTap: (){
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) {
-                //     return Lab_Report();
-                //   }),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) {
+                    return pdfupload(user.email ?? 'files');
+                  }),
+                );
               },
               child: Container(
                 decoration: BoxDecoration(
