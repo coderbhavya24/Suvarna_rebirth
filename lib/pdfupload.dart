@@ -133,7 +133,7 @@ void pickFile() async {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Image.asset("images/pdf1.png",height: 120, width: 100,),
-                    Text('${pdfData[index]['name']}', style: TextStyle(
+                    Text(pdfData[index]['name'].length >10 ?  pdfData[index]['name'].substring(0,5)+'...pdf' : pdfData[index]['name'], style: TextStyle(
                       fontFamily: 'Convergence',
                       fontSize: 18,
                     ),)

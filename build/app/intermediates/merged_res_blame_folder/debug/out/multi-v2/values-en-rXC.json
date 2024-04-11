@@ -4,7 +4,7 @@
             "outputFile": "C:\\Users\\LENOVO\\StudioProjects\\suvarna2\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en-rXC\\values-en-rXC.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\dcf0fd9e4c02d40354333b130bd3a2a3\\transformed\\browser-1.4.0\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\dd6586b262a4533f3a19b6c09d15b181\\transformed\\browser-1.4.0\\res\\values-en-rXC\\values-en-rXC.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\0737adc6d365da45358c4719e8dc3a7f\\transformed\\core-1.10.1\\res\\values-en-rXC\\values-en-rXC.xml",
+                    "source": "C:\\Users\\LENOVO\\.gradle\\caches\\transforms-3\\0d64d53b211bea243046d30c82bdd480\\transformed\\core-1.12.0\\res\\values-en-rXC\\values-en-rXC.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
