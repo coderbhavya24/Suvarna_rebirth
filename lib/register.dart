@@ -214,9 +214,6 @@ class _PageregisterState extends State<Pageregister> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Container(
-
-
-
                     margin: EdgeInsets.only(top: MediaQuery.of(context).size.height*0.77),
         // padding: EdgeInsets.only(top: MediaQuery.of(context).size.height*0.67)
                     decoration: BoxDecoration(
