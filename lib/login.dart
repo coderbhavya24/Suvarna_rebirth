@@ -4,7 +4,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:swathyavardhak/forgot.dart';
 import 'package:swathyavardhak/main.dart';
 import 'package:swathyavardhak/otp_login.dart';
-import 'package:swathyavardhak/presciptions.dart';
+import 'package:swathyavardhak/devicepick.dart';
 import 'package:swathyavardhak/register.dart';
 import 'package:swathyavardhak/verifyemail.dart';
 class Mylogin extends StatefulWidget {
@@ -177,7 +177,7 @@ class _MyloginState extends State<Mylogin> {
                       width: MediaQuery.of(context).size.width*0.65,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          primary: blue1,
+                          backgroundColor: blue1,
                         ),
                         onPressed: (){
                           if(ischecked==true)

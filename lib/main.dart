@@ -9,7 +9,7 @@ import 'package:swathyavardhak/Firebase_api.dart';
 import 'package:swathyavardhak/Medicines.dart';
 import 'package:swathyavardhak/firebase_retrieve.dart';
 import 'package:swathyavardhak/pdfupload.dart';
-import 'package:swathyavardhak/presciptions.dart';
+import 'package:swathyavardhak/devicepick.dart';
 import 'package:swathyavardhak/setting.dart';
 import 'package:swathyavardhak/splash.dart';
 
@@ -155,7 +155,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 context,
                                 MaterialPageRoute(builder: (context) {
 
-                                  return Lab_Report( user.email ?? 'files');
+                                  return Pick_From_Device( user.email ?? 'files');
                                 }),
                               );
                             },
@@ -303,7 +303,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children:  [
-                    Text('Medical History',
+                    Text('Medicines',
                       style: TextStyle(
                         fontFamily: 'Convergence',
                         fontWeight: FontWeight.w600,
@@ -311,12 +311,12 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),)
                     ,
                     Container(
-                      height: 110.0,
-                      width: 110.0,
+                      height: 120.0,
+                      width: 120.0,
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage(
-                              'images/medical.png'),
+                              'images/lab result.png'),
                           fit: BoxFit.fill,
                         ),
                         shape: BoxShape.circle,
@@ -359,12 +359,12 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),)
                     ,
                     Container(
-                      height: 120.0,
-                      width: 120.0,
+                      height: 110.0,
+                      width: 110.0,
                       decoration: BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage(
-                              'images/lab result.png'),
+                              'images/medical.png'),
                           fit: BoxFit.fill,
                         ),
                         shape: BoxShape.circle,

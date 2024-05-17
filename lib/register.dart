@@ -225,7 +225,7 @@ class _PageregisterState extends State<Pageregister> {
                       width: MediaQuery.of(context).size.width*0.65,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          primary: blue1,
+                          backgroundColor: blue1,
                         ),
                         onPressed: (){
                           if (_userpass1.text == _userpass2.text ) {

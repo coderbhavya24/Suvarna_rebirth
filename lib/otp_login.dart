@@ -92,7 +92,7 @@ class _OtpverifyState extends State<Otpverify> {
                       width: MediaQuery.of(context).size.width*0.65,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          primary: Color(0xff0d0f35),
+                          backgroundColor: Color(0xff0d0f35),
                         ),
                         onPressed: (){},
                         child: Text('Continue'),

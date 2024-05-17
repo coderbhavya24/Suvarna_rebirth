@@ -1,0 +1,1 @@
+ C:\\Users\\LENOVO\\StudioProjects\\suvarna2\\.dart_tool\\flutter_build\\8d8d61d227a7e863bf118e20c39c7aa0\\native_assets.yaml: 

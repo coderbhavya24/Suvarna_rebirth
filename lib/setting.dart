@@ -29,6 +29,19 @@ class _SettingSwasState extends State<SettingSwas> {
   _SettingSwasState(String name){
     this.names= name;
   }
+  late Future<bool> _hasDocumentsFuture;
+  bool _hasDocuments = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _hasDocumentsFuture = hasDocuments('query_${names}');
+    _hasDocumentsFuture.then((value) {
+      setState(() {
+        _hasDocuments = value;
+      });
+    });
+  }
   // TextEditingController query = TextEditingController();
   final List<Item> _data = List<Item>.generate(10,  (int index){
     return Item(headerText: _questions[index]['question'].toString(),
@@ -196,7 +209,7 @@ class _SettingSwasState extends State<SettingSwas> {
                           width: MediaQuery.of(context).size.width*0.55,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              primary: blue1,
+                              backgroundColor: blue1,
                             ),
                             onPressed: (){
                               addQuery();
@@ -219,16 +232,17 @@ class _SettingSwasState extends State<SettingSwas> {
                     ),
                   ),
                 ),
+                _hasDocuments ?
                 Container(
                   margin: EdgeInsets.only(left: 20,top: 30),
-                  padding: EdgeInsets.only(bottom: 7),
+                  padding: EdgeInsets.only(bottom: 10),
                   child: Text('Your Queries',
                     style: TextStyle(
                       fontSize: 25,
                       // fontFamily: 'Convergence',
                     ),
                   ),
-                ),
+                ): Container(),
                 Container(
                   child: SingleChildScrollView(
                     child: _buildExpansionPanelList(),
@@ -236,7 +250,7 @@ class _SettingSwasState extends State<SettingSwas> {
                 ),
                 Container(
                   margin: EdgeInsets.only(left: 20,top: 30),
-                  padding: EdgeInsets.only(bottom: 7),
+                  padding: EdgeInsets.only(bottom: 10),
                   child: Text('FAQ\'s',
                     style: TextStyle(
                       fontSize: 25,
@@ -319,8 +333,20 @@ class _SettingSwasState extends State<SettingSwas> {
       'isExpanded': isExpanded,
     });
   }
+  Future<bool> hasDocuments(String collectionName) async {
+    try {
+      QuerySnapshot querySnapshot =
+      await FirebaseFirestore.instance.collection(collectionName).limit(1).get();
+      return querySnapshot.docs.isNotEmpty;
+    } catch (e) {
+      print('Error fetching documents: $e');
+      return false;
+    }
+  }
   Future<void> addQuery() async {
-
+    setState(() {
+      _hasDocuments=true;
+    });
     final user = FirebaseFirestore.instance.collection('query_${names}').doc();
     final json ={
       'Question': 'Q. ${querycontroller.text}',
