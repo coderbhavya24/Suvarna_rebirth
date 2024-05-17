@@ -30,11 +30,7 @@ File? file;
 
 
   Future SelectFileFromStorage() async {
-    // FilePickerResult? result = await FilePicker.platform.pickFiles();
-    // if (result != null)
-    // setState(() {
-    //   pickedFile = result.files.first;
-    // });
+
     print(names);
     final result = await FilePicker.platform.pickFiles(allowMultiple: false);
     if(result==null) return;
@@ -50,7 +46,21 @@ File? file;
     if(file==null) return;
     final filename = basename(file!.path);
     final destination = '$names/$filename';
-    FirebaseApi.uploadFile(destination, file!);
+    final ref = FirebaseStorage.instance.ref(destination);
+    await ref.putFile(file!);
+    final downloadLink = await ref.getDownloadURL();
+
+    // Get the current date and time
+    final dateTime = DateTime.now();
+
+    // Save the download link and other details to Firestore
+    await FirebaseFirestore.instance.collection("${names}data").add({
+      "name": filename,
+      "url": downloadLink,
+      "uploadDate": dateTime,
+    });
+
+    print('File uploaded and download link saved to Firestore');
     print('file uploaded');
   }
 

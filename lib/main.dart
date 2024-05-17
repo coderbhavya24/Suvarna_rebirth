@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
@@ -7,7 +8,7 @@ import 'package:path/path.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:swathyavardhak/Firebase_api.dart';
 import 'package:swathyavardhak/Medicines.dart';
-import 'package:swathyavardhak/firebase_retrieve.dart';
+import 'package:swathyavardhak/presciptions_screen.dart';
 import 'package:swathyavardhak/pdfupload.dart';
 import 'package:swathyavardhak/devicepick.dart';
 import 'package:swathyavardhak/setting.dart';
@@ -61,8 +62,22 @@ class _MyHomePageState extends State<MyHomePage> {
     File file = File(_image.path);
     final filename = basename(file!.path!);
     final destination = '${user.email}/$filename';
-    FirebaseApi.uploadFile(destination, file!);
+    // FirebaseApi.uploadFile(destination, file!);
+    final ref = FirebaseStorage.instance.ref(destination);
+    await ref.putFile(file);
+    final downloadLink = await ref.getDownloadURL();
 
+    // Get the current date and time
+    final dateTime = DateTime.now();
+
+    // Save the download link and other details to Firestore
+    await FirebaseFirestore.instance.collection("${user.email}data").add({
+      "name": filename,
+      "url": downloadLink,
+      "uploadDate": dateTime,
+    });
+
+    print('File uploaded and download link saved to Firestore');
   }
 
   @override
