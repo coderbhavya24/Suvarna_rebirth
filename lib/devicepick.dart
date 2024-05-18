@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 import 'dart:ui';
 import 'package:path/path.dart';
@@ -7,11 +8,13 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as  http;
 import 'package:swathyavardhak/Firebase_api.dart';
 
 class Pick_From_Device extends StatefulWidget {
 
   String names="d";
+
    Pick_From_Device(String name){
     this.names = name;
   }
@@ -23,45 +26,88 @@ class Pick_From_Device extends StatefulWidget {
 class _Pick_From_DeviceState extends State<Pick_From_Device> {
   final blue1 = const Color(0xff0d0f35);
 File? file;
+  String imgpath='';
   String names='d';
   _Pick_From_DeviceState(String name){
     this.names=name;
   }
 
-
-  Future SelectFileFromStorage() async {
-
+  Future<void> selectFileFromStorage() async {
     print(names);
-    final result = await FilePicker.platform.pickFiles(allowMultiple: false);
-    if(result==null) return;
-      final path = result.files.single.path!;
-      setState(() {
-        file = File(path);
-      });
-
-
+    final result = await FilePicker.platform.pickFiles(
+      allowMultiple: false,
+      type: FileType.custom,
+      allowedExtensions: ['png', 'jpeg', 'jpg'],
+    );
+    if (result == null) return;
+    final path = result.files.single.path!;
+    setState(() {
+      file = File(path);
+      imgpath=path!;
+    });
+    print('File selected: $path');
   }
-  Future Upload() async{
 
-    if(file==null) return;
+  Future<void> uploadFileAndSaveUrl() async {
+    if (file == null) return;
+
     final filename = basename(file!.path);
     final destination = '$names/$filename';
     final ref = FirebaseStorage.instance.ref(destination);
-    await ref.putFile(file!);
-    final downloadLink = await ref.getDownloadURL();
 
-    // Get the current date and time
-    final dateTime = DateTime.now();
+    try {
+      // Upload the file to Firebase Storage
+      await ref.putFile(file!);
 
-    // Save the download link and other details to Firestore
-    await FirebaseFirestore.instance.collection("${names}data").add({
-      "name": filename,
-      "url": downloadLink,
-      "uploadDate": dateTime,
-    });
+      // Get the download link
+      final downloadLink = await ref.getDownloadURL();
 
-    print('File uploaded and download link saved to Firestore');
-    print('file uploaded');
+      // Get the current date and time
+      final dateTime = DateTime.now();
+
+      // Send the image to the API to get the text
+      var request = http.MultipartRequest(
+        'POST',
+        Uri.parse('https://suvarna-sarthak-guptas-projects.vercel.app/image'),
+      );
+      var imageFile = await http.MultipartFile.fromPath(
+        'file',
+        imgpath,
+         // Ensure correct MIME type
+      );
+      request.files.add(imageFile);
+
+      // Send the request
+      var response = await request.send();
+
+      // Handle the response
+      if (response.statusCode == 200) {
+        final responseData = await http.Response.fromStream(response);
+        final result = json.decode(responseData.body);
+
+        // Print the entire response for debugging
+        print('API Response: $result');
+
+        // Assuming the text is in the response under the key 'message'
+        final extractedText = result['message'] ?? 'No text extracted';
+
+        // Save the download link and other details to Firestore
+        await FirebaseFirestore.instance.collection("${names}data").add({
+          "name": filename,
+          "url": downloadLink,
+          "uploadDate": dateTime,
+          "extractedText": extractedText,
+        });
+
+        print('File uploaded and download link saved to Firestore');
+      } else {
+        print('Failed to extract text from the image. Status code: ${response.statusCode}');
+        final responseData = await http.Response.fromStream(response);
+        print('Response body: ${responseData.body}');
+      }
+    } catch (e) {
+      print('Error uploading file: $e');
+    }
   }
 
   @override
@@ -83,7 +129,7 @@ File? file;
                 },
               ),
             );
-            Upload();
+            uploadFileAndSaveUrl();
             // Find the ScaffoldMessenger in the widget tree
             // and use it to show a SnackBar.
             ScaffoldMessenger.of(context).showSnackBar(snackBar);
@@ -166,7 +212,7 @@ File? file;
 
             Container(),
           GestureDetector(
-            onTap: SelectFileFromStorage,
+            onTap: selectFileFromStorage,
             child: Container(
               margin: EdgeInsets.only(top: 30),
               width: MediaQuery.of(context).size.width*0.8,

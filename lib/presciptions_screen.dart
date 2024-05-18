@@ -90,7 +90,7 @@ class _RetrievalState extends State<Retrieval> {
         ),
       ),
       body: ListView.builder(
-          physics: NeverScrollableScrollPhysics(),
+          // physics: NeverScrollableScrollPhysics(),
           scrollDirection: Axis.vertical,
           shrinkWrap: true,
           itemCount: imgData.length,
