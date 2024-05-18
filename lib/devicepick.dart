@@ -1,6 +1,5 @@
-import 'dart:convert';
+
 import 'dart:io';
-import 'dart:ui';
 import 'package:path/path.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -8,14 +7,16 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as  http;
+import 'package:http/http.dart' as http;
+import 'package:mime/mime.dart';
+import 'package:http_parser/http_parser.dart';
+import 'dart:convert';
 import 'package:swathyavardhak/Firebase_api.dart';
 
 class Pick_From_Device extends StatefulWidget {
+  String names = "d";
 
-  String names="d";
-
-   Pick_From_Device(String name){
+  Pick_From_Device(String name) {
     this.names = name;
   }
 
@@ -25,11 +26,11 @@ class Pick_From_Device extends StatefulWidget {
 
 class _Pick_From_DeviceState extends State<Pick_From_Device> {
   final blue1 = const Color(0xff0d0f35);
-File? file;
-  String imgpath='';
-  String names='d';
-  _Pick_From_DeviceState(String name){
-    this.names=name;
+  File? file;
+  String imgpath = '';
+  String names = 'd';
+  _Pick_From_DeviceState(String name) {
+    this.names = name;
   }
 
   Future<void> selectFileFromStorage() async {
@@ -43,7 +44,7 @@ File? file;
     final path = result.files.single.path!;
     setState(() {
       file = File(path);
-      imgpath=path!;
+      imgpath = path;
     });
     print('File selected: $path');
   }
@@ -70,10 +71,12 @@ File? file;
         'POST',
         Uri.parse('https://suvarna-sarthak-guptas-projects.vercel.app/image'),
       );
+
+      var mimeType = lookupMimeType(file!.path);
       var imageFile = await http.MultipartFile.fromPath(
         'file',
         imgpath,
-         // Ensure correct MIME type
+        contentType: MediaType.parse(mimeType ?? 'image/'),
       );
       request.files.add(imageFile);
 
@@ -113,13 +116,12 @@ File? file;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       floatingActionButton: Container(
-        margin: EdgeInsets.only(right: 20,bottom: 20),
+        margin: EdgeInsets.only(right: 20, bottom: 20),
         height: 70,
         width: 70,
         child: FloatingActionButton(
-          onPressed: ()  {
+          onPressed: () {
             final snackBar = SnackBar(
               content: const Text('File uploaded'),
               action: SnackBarAction(
@@ -134,110 +136,106 @@ File? file;
             // and use it to show a SnackBar.
             ScaffoldMessenger.of(context).showSnackBar(snackBar);
           },
-          child: Icon(Icons.cloud_upload,
-          size: 35,),
+          child: Icon(
+            Icons.cloud_upload,
+            size: 35,
+          ),
         ),
       ),
       body: Column(
         children: [
           Container(
-            margin: EdgeInsets.only(top: MediaQuery.of(context).size.height*0.12 , left: 20,right: 20
+            margin: EdgeInsets.only(
+              top: MediaQuery.of(context).size.height * 0.12,
+              left: 20,
+              right: 20,
             ),
             child: Row(
-
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                  child: Text("  View section"
-                    ,style: TextStyle(
+                  child: Text(
+                    "  View section",
+                    style: TextStyle(
                       fontFamily: 'Convergence',
                       fontWeight: FontWeight.w600,
-
                       fontSize: 23,
-                    ),),
+                    ),
+                  ),
                 ),
                 Container(
-                    height: 45,
-                    width: 45,
-
-                    // padding: EdgeInsets.all(20),
-                    // margin: EdgeInsets.all(8),
-                    padding: EdgeInsets.all(4),
-                    decoration: const BoxDecoration(
-                      boxShadow: const [BoxShadow(
-                        color: Colors.white,
-                        spreadRadius: 1.5,
-                      ),],
-                      shape: BoxShape.circle,
-                      color: Color.fromRGBO(0, 178, 255, 100),
-                      // color: Color.fromRGBO(132, 29, 210, 72),
-                    ),
-                    child: CircleAvatar(
-                      backgroundImage: AssetImage('images/avata.png'),
-                    )
+                  height: 45,
+                  width: 45,
+                  padding: EdgeInsets.all(4),
+                  decoration: const BoxDecoration(
+                    boxShadow: [BoxShadow(
+                      color: Colors.white,
+                      spreadRadius: 1.5,
+                    )],
+                    shape: BoxShape.circle,
+                    color: Color.fromRGBO(0, 178, 255, 100),
+                  ),
+                  child: CircleAvatar(
+                    backgroundImage: AssetImage('images/avata.png'),
+                  ),
                 ),
               ],
             ),
           ),
-          file!=null?
-             Container(
-               margin: EdgeInsets.only(top: 30),
-              height: 400,
-              width: 400,
-              color: Colors.transparent,
-              child: Image.file(
-                File(file!.path),
-                // width: double.infinity,
-                // fit: BoxFit.cover,
-              ),
-            ) :
-          Container(
-            margin: EdgeInsets.only(top: 30 , left: 2 , right: 2),
+          file != null
+              ? Container(
+            margin: EdgeInsets.only(top: 30),
             height: 400,
             width: 400,
-            // color: Colors.grey,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.black,
-                )
+            color: Colors.transparent,
+            child: Image.file(
+              File(file!.path),
+            ),
+          )
+              : Container(
+            margin: EdgeInsets.only(top: 30, left: 2, right: 2),
+            height: 400,
+            width: 400,
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.black,
               ),
+            ),
             child: Center(
-              child: Text("Image Area",
-              style: TextStyle(
-                fontFamily: 'Convergence',
-                fontSize: 30,
-              ),),
-            )
+              child: Text(
+                "Image Area",
+                style: TextStyle(
+                  fontFamily: 'Convergence',
+                  fontSize: 30,
+                ),
+              ),
+            ),
           ),
-
-            Container(),
+          Container(),
           GestureDetector(
             onTap: selectFileFromStorage,
             child: Container(
               margin: EdgeInsets.only(top: 30),
-              width: MediaQuery.of(context).size.width*0.8,
+              width: MediaQuery.of(context).size.width * 0.8,
               height: 50,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(20)),
                 color: Colors.blue,
               ),
               child: Center(
-                child: Text('Select File',
-                style: TextStyle(
-                  fontSize: 30,
-                  color: Colors.black,
-                  fontFamily: 'Convergence'
-                ),),
+                child: Text(
+                  'Select File',
+                  style: TextStyle(
+                    fontSize: 30,
+                    color: Colors.black,
+                    fontFamily: 'Convergence',
+                  ),
+                ),
               ),
             ),
           ),
-
-
-
         ],
       ),
-
     );
   }
 }
-

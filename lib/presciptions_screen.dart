@@ -133,20 +133,60 @@ class _RetrievalState extends State<Retrieval> {
                   ),
                 ),
                 check[index]
-                    ? Container(
-                        //   width: 300,
-                        // height: 150,
-                        child: Container(
-                          margin: EdgeInsets.only(top: 30),
-                          height: 400,
-                          width: 400,
-                          color: Colors.transparent,
-                          child: Image.network(
-                            imgData[index]['url']!,
-                            fit: BoxFit.cover,
+                    ? Column(
+                      children: [
+                        Container(
+                            //   width: 300,
+                            // height: 150,
+                            child: Container(
+                              margin: EdgeInsets.only(top: 30),
+                              height: 400,
+                              width: 400,
+                              color: Colors.transparent,
+                              child: Image.network(
+                                imgData[index]['url']!,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                        SizedBox(height: 15,),
+
+                        Container(
+                          padding: EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            color: Colors.grey[200],
+                            borderRadius: BorderRadius.circular(10),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 2,
+                                blurRadius: 5,
+                                offset: Offset(0, 3), // changes position of shadow
+                              ),
+                            ],
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Findings from the Image',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              SizedBox(height: 8),
+                              Text(
+            imgData[index]['extractedText'],
+                                style: TextStyle(fontSize: 16),
+                                textAlign: TextAlign.left,
+                              ),
+                            ],
                           ),
                         ),
-                      )
+
+                      ],
+                    )
                     : Container(),
               ],
             );

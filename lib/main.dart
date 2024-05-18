@@ -13,7 +13,10 @@ import 'package:swathyavardhak/pdfupload.dart';
 import 'package:swathyavardhak/devicepick.dart';
 import 'package:swathyavardhak/setting.dart';
 import 'package:swathyavardhak/splash.dart';
-
+import 'package:http/http.dart' as http;
+import 'package:mime/mime.dart';
+import 'package:http_parser/http_parser.dart';
+import 'dart:convert';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -64,20 +67,61 @@ class _MyHomePageState extends State<MyHomePage> {
     final destination = '${user.email}/$filename';
     // FirebaseApi.uploadFile(destination, file!);
     final ref = FirebaseStorage.instance.ref(destination);
-    await ref.putFile(file);
-    final downloadLink = await ref.getDownloadURL();
+    try {
+      // Upload the file to Firebase Storage
+      await ref.putFile(file!);
 
-    // Get the current date and time
-    final dateTime = DateTime.now();
+      // Get the download link
+      final downloadLink = await ref.getDownloadURL();
 
-    // Save the download link and other details to Firestore
-    await FirebaseFirestore.instance.collection("${user.email}data").add({
-      "name": filename,
-      "url": downloadLink,
-      "uploadDate": dateTime,
-    });
+      // Get the current date and time
+      final dateTime = DateTime.now();
 
-    print('File uploaded and download link saved to Firestore');
+      // Send the image to the API to get the text
+      var request = http.MultipartRequest(
+        'POST',
+        Uri.parse('https://suvarna-sarthak-guptas-projects.vercel.app/image'),
+      );
+
+      var mimeType = lookupMimeType(file!.path);
+      var imageFile = await http.MultipartFile.fromPath(
+        'file',
+        _image.path,
+        contentType: MediaType.parse(mimeType ?? 'image/'),
+      );
+      request.files.add(imageFile);
+
+      // Send the request
+      var response = await request.send();
+
+      // Handle the response
+      if (response.statusCode == 200) {
+        final responseData = await http.Response.fromStream(response);
+        final result = json.decode(responseData.body);
+
+        // Print the entire response for debugging
+        print('API Response: $result');
+
+        // Assuming the text is in the response under the key 'message'
+        final extractedText = result['message'] ?? 'No text extracted';
+
+        // Save the download link and other details to Firestore
+        await FirebaseFirestore.instance.collection("${user.email}data").add({
+          "name": filename,
+          "url": downloadLink,
+          "uploadDate": dateTime,
+          "extractedText": extractedText,
+        });
+
+        print('File uploaded and download link saved to Firestore');
+      } else {
+        print('Failed to extract text from the image. Status code: ${response.statusCode}');
+        final responseData = await http.Response.fromStream(response);
+        print('Response body: ${responseData.body}');
+      }
+    } catch (e) {
+      print('Error uploading file: $e');
+    }
   }
 
   @override
